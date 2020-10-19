@@ -1,50 +1,33 @@
 import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Não reacrregar a página toda do zero
 
 import '../styles/pages/landing.css';
 
 import logoImg from '../images/logo.svg';
-import markerImg from '../images/map-marker.svg';
 
 function Landing() {
-  return (
-    <div id="page-landing">
+    return (
+        <div id="page-landing">
+            <div className="content-wrapper">
+                <img src={logoImg} alt="Happy" />
 
-      <motion.div
-        className="wrapper-logo-happy"
-        initial={{ scale: 0 }}
-        animate={{ scale: 2 }}
-        transition={{ duration: 1.5, repeat: 1, repeatType: "reverse" }}
-      >
-        <img src={markerImg} alt="Logo happy" />
-      </motion.div>
+                <main>
+                    <h1>Leve felicidade para o mundo</h1>
+                    <p>Visite orfanatos e mude o dia de muitas crianças.</p>
+                </main>
 
-      <motion.div
-        className="content-wrapper"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 3, duration: 0.8 }}
-      >
-        <img src={logoImg} alt="Logo da plataforma Happy" />
+                <div className="location">
+                    <strong>Guarulhos</strong>
+                    <span>São Paulo</span>
+                </div>
 
-        <main>
-          <h1>Leve felicidade para o mundo</h1>
-          <p>Visite orfanatos e mude o dia de muitas crianças.</p>
-        </main>
-
-        <div className="location">
-          <strong>São Paulo</strong>
-          <span>São Paulo</span>
+                <Link to="/app" className="enter-app">
+                    <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
+                </Link>
+            </div>
         </div>
-
-        <Link to="/app" className="enter-app">
-          <FiArrowRight size={26} color="rgba(8, 0, 0, 0.6)" />
-        </Link>
-      </motion.div>
-    </div>
-  );
+    );
 }
 
 export default Landing;
